@@ -1,46 +1,46 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PhotoBox from './photoBox';
+import NoPics from './noPics';
+import Loading from './loading';
+import apiKey from './config';
+import axios from 'axios';
 
 class Photos extends Component {
-  state = {
-    imgs:[
-      {
-        imageUrl: "https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg",
-        altText: "Kitten"
-      },
-      {
-        imageUrl: "https://farm5.staticflickr.com/4342/36338751244_316b6ee54b.jpg",
-        altText: "Puppy"
-      },
-      {
-        imageUrl: "https://farm5.staticflickr.com/4343/37175099045_0d3a249629.jpg",
-        altText: "Laptop"
-      },
-      {
-        imageUrl: "https://farm5.staticflickr.com/4425/36337012384_ba3365621e.jpg",
-        altText: "Doggo"
-      }
-    ]
-  };
-  getLinksLength = () => this.state.imgs.length;
+  constructor(){
+    super();
+    this.state ={
+      pics : [],
+      loading: true
+    };
+  }
+  componentDidMount(){
+    this.Search();
+  }
+  Search = (query = `${this.props.term}`) => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=1&tags=${query}&per_page=28&format=json&nojsoncallback=1`)
+    .then (response => {console.log(this.state); this.setState({pics: response.data.photos.photo, loading: false}); })
+    .catch (error => {console.log(error);})
+    }
+
   render() {
+
+    if (this.state.loading){
+      return( <Loading/> )
+    }
+
+    if(this.state.pics.length ===0){
+      return( <NoPics/> )
+    }
+
     return (
-      <div className="photo-container">
-        <h2>Results</h2>
-        <ul>
-          {props.imgs.map((imgs, idx)=>
-            <li key={idx}>
-            <img src={imgs.imageUrl} alt={imgs.altText}/>
-          </li>
-          )}
-        </ul>
+      <div className="container">
+       <h2>{this.props.term} </h2>
+       <PhotoBox data={this.state.pics} />
       </div>
     );
   }
 }
 
-Photos.propTypes = {
-  imgs: PropTypes.array.isRequired
-}
+
 
 export default Photos;

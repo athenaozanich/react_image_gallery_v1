@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header';
-import Form from './components/form';
-import Nav from './components/nav';
 import Photos from './components/photos';
+import NoPics from './components/noPics';
 import './App.css';
 
-const App = props =>
-  <div className="container">
-  <Header/>
-  <Form/>
-  <Nav/>
-  <Photos/>
-  </div>;
+class App extends Component{
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+        <Route path ="/" component={Header} />
+        <Switch>
+          <Route path ="/search/:searchterm" render={ props => <Photos term={ props.match.params.searchterm }/> } />
+          <Route exact path ="/" render={ props => <Photos term='Space'/> } />
+          <Route component={NoPics}/>
+        </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
+
+}
 
 
 export default App;

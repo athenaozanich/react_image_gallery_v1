@@ -1,11 +1,11 @@
 import React from 'react';
-
-const Nav = props =>
+import {NavLink} from 'react-router-dom';
+const Nav = ({match}) =>
   <nav className="main-nav">
     <ul>
-      <li><a href='#'>T-rex</a></li>
-      <li><a href='#'>Dogs</a></li>
-      <li><a href='#'>Computers</a></li>
+      <li><NavLink to='/search/T-rex'>T-rex</NavLink></li>
+      <li><NavLink to='/search/dogs'>Dogs</NavLink></li>
+      <li><NavLink to='/search/computers'>Computers</NavLink></li>
     </ul>
   </nav>;
 export default Nav;
