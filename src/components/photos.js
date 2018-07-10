@@ -18,7 +18,7 @@ class Photos extends Component {
   }
   Search = (query = `${this.props.term}`) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=1&tags=${query}&per_page=28&format=json&nojsoncallback=1`)
-    .then (response => {console.log(this.state); this.setState({pics: response.data.photos.photo, loading: false}); })
+    .then (response => { this.setState({pics: response.data.photos.photo, loading: false}); console.log(this.state); })
     .catch (error => {console.log(error);})
     }
 

@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component{
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <div className="container">
         <Route path ="/" component={Header} />
         <Switch>
