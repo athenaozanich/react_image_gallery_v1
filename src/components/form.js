@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
 class Form extends Component  {
-
+  //event handler for url and history updating
   submitHandle = (e) =>{
         e.preventDefault ();
         let searchVal = '/search/' + this.query.value;
@@ -11,6 +11,7 @@ class Form extends Component  {
 
   render() {
   return (
+  //form for search query
   <form className="search-form" onSubmit={this.submitHandle}>
     <input type="search" name="search" placeholder="Search" required ref={(input) => this.query = input}/>
     <button type="submit" className="search-button">

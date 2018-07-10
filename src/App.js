@@ -8,7 +8,8 @@ import './App.css';
 class App extends Component{
   render() {
     return (
-      <BrowserRouter forceRefresh={true}>
+      //browser routing and switch for dynamic display of content and matching url
+      <BrowserRouter>
         <div className="container">
         <Route path ="/" component={Header} />
         <Switch>
@@ -20,8 +21,5 @@ class App extends Component{
       </BrowserRouter>
     );
   }
-
 }
-
-
 export default App;
