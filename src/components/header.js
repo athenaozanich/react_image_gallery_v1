@@ -7,7 +7,7 @@ const Header = props =>{
     //display component for header
     <header>
       <h1>React Image Gallery</h1>
-      <Form onSearch={this.Search}/>
+      <Form/>
       <Nav/>
     </header>
   );

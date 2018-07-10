@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
+
 class Form extends Component  {
   //event handler for url and history updating
-  submitHandle = (e) =>{
-        e.preventDefault ();
-        let searchVal = '/search/' + this.query.value;
-        this.props.history.push(searchVal);
+  submitHandle = (evt) =>{
+    evt.preventDefault ();
+    let queryString = this.query.value;
+    let searchVal = '/query/' + queryString;
+    this.props.history.push(searchVal);
   }
 
   render() {
@@ -21,7 +23,7 @@ class Form extends Component  {
       </svg>
     </button>
   </form>);
-  }
+}//end render
 
-}
+}//end class
 export default withRouter(Form);

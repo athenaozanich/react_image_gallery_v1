@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header';
 import Photos from './components/photos';
-import NoPics from './components/noPics';
+import NoImgs from './components/noImgs';
 import './App.css';
 
 class App extends Component{
@@ -13,9 +13,9 @@ class App extends Component{
         <div className="container">
         <Route path ="/" component={Header} />
         <Switch>
-          <Route path ="/search/:searchterm" render={ props => <Photos term={ props.match.params.searchterm }/> } />
-          <Route exact path ="/" render={ props => <Photos term='Space'/> } />
-          <Route component={NoPics}/>
+          <Route  exact path="/query/:term" render={ props => <Photos term={ props.match.params.term }/> } />
+          <Route exact path="/" render={ props => <Photos term='T-rex'/> } />
+          <Route component={NoImgs}/>
         </Switch>
         </div>
       </BrowserRouter>
