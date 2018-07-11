@@ -23,6 +23,7 @@ class Photos extends Component {
     const searchStr = this.props.term;
     const newSearchStr = nextProps.term;
     if(searchStr !== newSearchStr) {
+      this.setState({loading: true});
        this.Search(newSearchStr);
      }
   }
