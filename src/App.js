@@ -13,8 +13,8 @@ class App extends Component{
         <div className="container">
         <Route path ="/" component={Header} />
         <Switch>
-          <Route  exact path="/query/:term" render={ props => <Photos term={ props.match.params.term }/> } />
-          <Route exact path="/" render={ props => <Photos term='T-rex'/> } />
+          <Route path="/query/:term" render={ props => <Photos term={ props.match.params.term }/> } />
+          <Route exact path="/" render={ props => <Photos term='Space'/> } />
           <Route component={NoRoute}/>
         </Switch>
         </div>

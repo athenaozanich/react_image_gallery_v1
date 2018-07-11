@@ -16,7 +16,7 @@ class Photos extends Component {
   }
   //mount and initialize component
   componentDidMount(){
-    this.Search();
+    this.Search(this.props.term);
   }
   //update component with props for new search results
   componentWillReceiveProps = (nextProps) => {

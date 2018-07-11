@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-const Nav = () =>{
+const Nav = ({match}) =>{
   //display component for navigation
   return(<nav className="main-nav">
     <ul>
