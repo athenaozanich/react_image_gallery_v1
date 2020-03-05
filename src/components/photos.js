@@ -45,7 +45,7 @@ class Photos extends Component {
     return (
       //display component for results
       <div className="container">
-       <h2>{this.props.term} </h2>
+       <h2>Images of:{this.props.term} </h2>
        <PhotoBox data={this.state.imgsArr} />
       </div>
     );
