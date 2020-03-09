@@ -1,3 +1,8 @@
+To install and run this project locally, you'll need to fork and clone your own copy of it.
+1. Run the command `npm install`
+2. Create a component named config and export YOUR flicker API key
+3. Run the command `npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
